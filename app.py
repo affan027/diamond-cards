@@ -18,5 +18,8 @@ def contact():
 def gallery():
     return render_template("gallery.html")
 
+    import os
+
 if __name__ == '__main__':
-    app.run(debug=True, host='192.168.1.10')
+    port = int(os.environ.get("PORT", 5000))  # Use PORT from environment (Render will provide it)
+    app.run(host='0.0.0.0', port=port, debug=True)
