@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import os
 
 app = Flask(__name__)
 
@@ -18,8 +19,8 @@ def contact():
 def gallery():
     return render_template("gallery.html")
 
-    import os
-
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))  # Use PORT from environment (Render will provide it)
+    # This will work both locally and on Render
+    port = int(os.environ.get("PORT", 5000))  # Render sets this PORT
     app.run(host='0.0.0.0', port=port, debug=True)
+
